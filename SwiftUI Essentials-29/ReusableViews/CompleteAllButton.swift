@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct CompleteAllButton: View {
+    @Binding var todoItems: [ToDoItems]
+    @Binding var checkedItemsCount: Int
+    
     var body: some View {
-        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+        Button(action: {
+            print("something")
+            for index in todoItems.indices {
+                todoItems[index].isChecked = true
+                checkedItemsCount = todoItems.count
+
+            }
+        }) {
             ZStack {
                 Image("buttonBackgroundImage")
                     .resizable()
@@ -18,10 +28,10 @@ struct CompleteAllButton: View {
             }
             .frame(width: 370, height: 50)
             .cornerRadius(15)
-        })
+        }
     }
 }
 
-#Preview {
-    CompleteAllButton()
-}
+//#Preview {
+//    CompleteAllButton()
+//}
